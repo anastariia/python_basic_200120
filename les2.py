@@ -1,55 +1,54 @@
-# 1
-i = input("Введите значение:")
-print(i)
+# Задание 2.1
+my_list = [-451, 2, 99.99, 'One', True, None, any]
+def my_type(el):
+    for el in range(len(my_list)):
+# Вывод названия каждого типа на экран
+        print(type(my_list[el]))
+    return
+my_type(my_list)
 
-j = 3
-print(j)
+# Задание 2.2
+s_stop = input('Введите слово, которым вы завершите формирование списка. Например, "end": ')
+s_input = 'Введите следующее значение списка, или завершите список словом "' + s_stop + '": '
+my_list = []
+x = ''
+# Формирование списка в цикле, пока не будет написано слово = s_stop
+while True:
+    x = input(s_input)
+    if x == s_stop: 
+        break
+    my_list.append(x)
 
-# 2
-sec = int(input("Введите время в секундах:"))
-hh = sec // 3600
-mm = sec // 60
-ss = sec % 60
-print(hh, ":", mm, ":", ss)
+i = 0
+# Подмена значений
+for elem in range(int(len(my_list)/2)):
+        my_list[i], my_list[i + 1] = my_list [i + 1], my_list[i]
+        i += 2
+print(my_list) 
 
-# 3
-n = int(input("Введите одну цифру:"))
-nn = n + n * 10
-nnn = nn + n * 100
-print(n + nn + nnn)
+# Возможен другой вариант решения: пользователь заранее должен посчитать кол-во 
+# элементов списка, что часто очень неудобно. 
+# Но в таком случае можно было бы написать код по-другому,
+# спросив сначала кол-во элементов, и пройдясь циклом по списку столько раз.
 
-# 4
-i = int(input("Введите целое положительное число:"))
-j_max = 0
-while i > 0:
-    j = i % 10
-    i = i // 10
-    if j > j_max:
-        j_max = j
-print("Самое большое число в списке:", j_max)
 
-# 5
-proseeds = float(input("Ведите выручку:"))
-costs = float(input("Введите издержки:"))
-if proseeds > costs:
-    print("Прибыль: ", proseeds - costs)
-    print("Рентабельность: ", (proseeds - costs) / proseeds)
-    i = int(input("Введите количество сотрудников:"))
-    if i > 0:
-        print("Прибыль в расчёте на одного сотрудника: ", (proseeds - costs) / i)
-elif proseeds < costs:
-    print("Убыток: ", costs - proseeds)
+
+# Задание 2.3
+s_list = ['зима', 'весна', 'лето', 'осень']
+s_dict = {1 : 'зима', 2 : 'весна', 3 : 'лето', 4 : 'осень'}
+s_month = int(input("Введите номер месяца: "))
+if s_month ==1 or s_month == 12 or s_month == 2:
+    print("list:", s_list[0])
+    print("dict:", s_dict.get(1))
+elif s_month == 3 or s_month == 4 or s_month ==5:
+    print("list:", s_list[1])
+    print("dict:", s_dict.get(2))
+elif s_month == 6 or s_month == 7 or s_month == 8:
+    print("list:", s_list[2])
+    print("dict:", s_dict.get(3))
+elif s_month == 9 or s_month == 10 or s_month == 11:
+    print("list:", s_list[3])
+    print("dict:", s_dict.get(4))
 else:
-    print("Прибыли нет, но и убытков нет")
+    print("А как бы вы назвали новый", s_month, "месяц и его сезон?") 
 
-# 6
-a = int(input("Километров в первый день:"))
-b = int(input("Километров в последний день:"))
-day = 1
-while a < b:
-    a = a * 1.1
-    day = day + 1
-print(day)
-print("на ", day, "день спортсмен достиг результата — не менее ", b, " км.")
-
-###
